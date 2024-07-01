@@ -16,3 +16,5 @@ Each weekly folder contains:
 ### Project
 - **[Cloning a Repository from GitHub](Project.html)**
 
+### Notes
+- **[Weekly Notes](Notes.html)**
