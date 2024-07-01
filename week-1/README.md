@@ -14,4 +14,5 @@ Each weekly folder contains:
 - **Session 2**: Project Planning & Version Control
 
 ### Project
-- **Cloning a Repository from GitHub**
+- **[Cloning a Repository from GitHub](project.html)**
+
