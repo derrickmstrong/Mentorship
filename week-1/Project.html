@@ -1,11 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+        code {
+            background-color: #f9f9f9;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: Consolas, "Courier New", monospace;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .steps {
+            margin-top: 20px;
+        }
+        .steps > div {
+            margin-bottom: 20px;
+        }
+        .steps img {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+        }
+    </style>
     <title>Week 1 - Project</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Week 1 - Project</h1>
-</body>
+    <h2>Cloning a Repository from GitHub</h2>
+
+    <p>
+      Cloning a repository means creating a local copy of the code and history
+      from a GitHub repository to your computer. Follow these steps to clone a
+      repository:
+    </p>
+
+    <h2>Step-by-Step Instructions</h2>
+
+    <div class="steps">
+      <div>
+        <h3>1. Prerequisites</h3>
+        <p>Before you start, ensure you have the following:</p>
+        <ul>
+          <li>
+            <strong>Git:</strong> Installed on your computer. If not, download
+            and install it from the
+            <a
+              href="https://git-scm.com/downloads"
+              target="_blank"
+              >Git website</a
+            >.
+          </li>
+          <li>
+            <strong>GitHub Account:</strong> You’ll need an account to access
+            and clone repositories. Sign up at
+            <a
+              href="https://github.com/join"
+              target="_blank"
+              >GitHub</a
+            >
+            if you don't have one.
+          </li>
+          <li>
+            <strong>Terminal or Command Line:</strong> Access to a terminal or
+            command line interface (CLI) to run Git commands.
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>2. Find the Repository URL</h3>
+        <p>
+          Follow these steps to get the URL of the repository you want to clone:
+        </p>
+        <ol>
+          <li>
+            Go to the
+            <a
+              href="https://github.com"
+              target="_blank"
+              >GitHub repository</a
+            >
+            you want to clone in your web browser.
+          </li>
+          <li>
+            On the repository's main page, locate the
+            <strong>Code</strong> button (usually green) and click on it.
+          </li>
+          <li>
+            <img
+              src="https://docs.github.com/assets/cb-13144/images/help/repository/code-button.png"
+              alt="Code Button"
+            />
+          </li>
+          <li>
+            Copy the repository URL from the dialog that appears. You can choose
+            HTTPS, SSH, or GitHub CLI. For beginners, HTTPS is usually the
+            easiest.
+          </li>
+          <!-- <li>
+            <img
+              src="https://docs.github.com/assets/cb-13041/images/help/repository/https-url-clone.png"
+              alt="Clone URL"
+            />
+          </li> -->
+          <li>
+            Example URL format (HTTPS):
+            <code>https://github.com/username/repository-name.git</code>
+          </li>
+        </ol>
+      </div>
+
+      <div>
+        <h3>3. Open Terminal or Command Line</h3>
+        <p>
+          Follow these steps to open your terminal and navigate to your desired
+          directory:
+        </p>
+        <ol>
+          <li>
+            Open your terminal (Mac/Linux) or command prompt (Windows). You can
+            use the built-in terminal in your code editor like VSCode as well.
+          </li>
+          <li>
+            Navigate to the directory where you want to clone the repository
+            using the <code>cd</code> command. For example:
+          </li>
+          <pre><code>cd path/to/your/directory</code></pre>
+        </ol>
+      </div>
+
+      <div>
+        <h3>4. Clone the Repository</h3>
+        <p>To clone the repository, follow these steps:</p>
+        <ol>
+          <li>
+            In your terminal, type the <code>git clone</code> command followed
+            by the copied URL. For example:
+          </li>
+          <pre><code>git clone https://github.com/username/repository-name.git</code></pre>
+          <li>Press <strong>Enter</strong> to execute the command.</li>
+          <li>
+            Git will start copying the repository to your local machine. You
+            should see output similar to this:
+          </li>
+          <pre><code>Cloning into 'repository-name'...
+remote: Counting objects: 100% (XXX/XXX), done.
+remote: Compressing objects: 100% (XXX/XXX), done.
+remote: Total XXX (delta X), reused X (delta X), pack-reused XXX
+Receiving objects: 100% (XXX/XXX), X MB | X MB/s, done.
+Resolving deltas: 100% (XX/XX), done.</code></pre>
+        </ol>
+      </div>
+
+      <div>
+        <h3>5. Navigate to the Cloned Repository</h3>
+        <p>
+          Once the cloning is complete, navigate into the repository directory
+          using the <code>cd</code> command. Replace
+          <code>repository-name</code> with the actual name of your cloned
+          repository:
+        </p>
+        <pre><code>cd repository-name</code></pre>
+        <p>You can now start working with the code locally!</p>
+      </div>
+    </div>
+
+    <h2>Troubleshooting Tips</h2>
+    <ul>
+      <li>
+        <strong>Permission Denied (Publickey):</strong> If you encounter this
+        error when using SSH, ensure your SSH keys are correctly set up in
+        GitHub.
+      </li>
+      <li>
+        <strong>Authentication Failed:</strong> For HTTPS cloning, make sure you
+        have the correct username and password or set up a personal access token
+        if 2FA is enabled.
+      </li>
+      <li>
+        <strong>No Git Command:</strong> If you receive a message that Git is
+        not recognized, confirm that Git is installed and the path is correctly
+        added to your system's environment variables.
+      </li>
+    </ul>
+
+    <h2>Additional Resources</h2>
+    <ul>
+      <li>
+        <a
+          href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository"
+          target="_blank"
+          >GitHub Guide on Cloning Repositories</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup"
+          target="_blank"
+          >Setting Up Git</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh"
+          target="_blank"
+          >Generating SSH Keys</a
+        >
+      </li>
+    </ul>
+
+    <p>
+      With these instructions, you should be able to clone any repository from
+      GitHub and start working on it locally. Happy coding!
+    </p>
+  </body>
 </html>
