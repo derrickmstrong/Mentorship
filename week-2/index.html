@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      name="description"
+      content="My Simple Webpage"
+    />
+    <meta
+      name="keywords"
+      content="HTML, CSS, JavaScript"
+    />
+    <meta
+      name="author"
+      content="Your Name"
+    />
+    <meta
+      name="robots"
+      content="index, follow"
+    />
+    <title>My Simple Webpage by Derrick</title>
+    <style>
+      /* Add your CSS styles here */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 15px;
+        background-color: #f0f0f0;
+      }
+      header {
+        background-color: #4caf50;
+        color: white;
+        padding: 1em;
+        text-align: center;
+      }
+      main {
+        padding: 1em;
+        margin: 1em;
+        background-color: white;
+        border-radius: 8px;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 0.5em 1em;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 1em 0;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to My Simple Webpage</h1>
+    </header>
+    <main>
+      <p id="greeting">Hello, world!</p>
+      <button onclick="changeGreeting()">Click me!</button>
+    </main>
+    <footer>
+      <p>© 2024 My Simple Webpage. All rights reserved.</p>
+    </footer>
+    <script>
+      function changeGreeting() {
+        document.getElementById('greeting').innerText =
+          'You clicked the button!!!!!';
+      }
+    </script>
+  </body>
+</html>
