@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 15px;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+        main {
+            padding: 1em;
+            margin: 1em;
+            background-color: white;
+            border-radius: 8px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 1em 0;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+    <title>Week 2 - Project</title>
+  </head>
+  <body>
+    <h1>Week 2 - Project</h1>
+    <h2>Build a simple HTML/CSS/Javascript page</h2>
+    <p>
+        In this project, you will create a simple webpage using HTML, CSS, and JavaScript. The webpage will have a header, main content area, and a button that changes the text content when clicked.
+    </p>
+    <h2>Instructions</h2>
+    <ol>
+        <li>Create a new HTML file with the following structure:</li>
+        <pre>
+            <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8" /&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+                    &lt;title&gt;My Simple Webpage&lt;/title&gt;
+                    &lt;style&gt;
+                        /* Add your CSS styles here */
+                        body {
+                            font-family: Arial, sans-serif;
+                            margin: 0;
+                            padding: 15px;
+                            background-color: #f0f0f0;
+                        }
+                        header {
+                            background-color: #4CAF50;
+                            color: white;
+                            padding: 1em;
+                            text-align: center;
+                        }
+                        main {
+                            padding: 1em;
+                            margin: 1em;
+                            background-color: white;
+                            border-radius: 8px;
+                        }
+                        button {
+                            background-color: #4CAF50;
+                            color: white;
+                            border: none;
+                            padding: 0.5em 1em;
+                            text-align: center;
+                            text-decoration: none;
+                            display: inline-block;
+                            font-size: 16px;
+                            margin: 1em 0;
+                            cursor: pointer;
+                            border-radius: 4px;
+                        }
+                    &lt;/style&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;header&gt;
+                        &lt;h1&gt;Welcome to My Simple Webpage&lt;/h1&gt;
+                    &lt;/header&gt;
+                    &lt;main&gt;
+                        &lt;p id="greeting"&gt;Hello, world!&lt;/p&gt;
+                        &lt;button onclick="changeGreeting()"&gt;Click me!&lt;/button&gt;
+                    &lt;/main&gt;
+                    &lt;footer&gt; 
+                      &lt;p&gt; &copy; 2024 My Simple Webpage. All rights reserved.&lt;/p&gt; 
+                  &lt;/footer&gt; 
+                    &lt;script&gt;
+                        function changeGreeting() {
+                            document.getElementById('greeting').innerText = "You clicked the button!";
+                        }
+                    &lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+            </code>
+        </pre>
+        <li>Save the file with a .html extension, for example, index.html.</li>
+        <li>Open the file in a web browser to see your simple webpage in action.</li>
+    </ol>
+    <h2>Explanation</h2>
+    <p>
+        This simple webpage consists of a header with a welcome message, a main content area with a paragraph and a button. When the button is clicked, the text content of the paragraph changes to "You clicked the button!".
+    </p>
+    <p>
+        Feel free to expand on this project by adding more styles, HTML elements, or JavaScript functions to enhance the functionality and appearance of the webpage.
+    </p>
+    <h2>Resources</h2>
+    <ul>
+        <li><a href="https://www.w3schools.com/html/">HTML Tutorial</a></li>
+        <li><a href="https://www.w3schools.com/css/">CSS Tutorial</a></li>
+        <li><a href="https://www.w3schools.com/js/">JavaScript Tutorial</a></li>
+    </ul>
+    <h2>Project Submission</h2>
+    <p>
+        Once you have completed the project, submit the HTML file (index.html) to Week 2 branch in GitHub.
+    </p>
+    
+    <header>
+        <h1>Welcome to My Simple Webpage</h1>
+    </header>
+    <main>
+        <p id="greeting">Hello, world!</p>
+        <button onclick="changeGreeting()">Click me!</button>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Simple Webpage. All rights reserved.</p>
+    </footer>
+    <script>
+        function changeGreeting() {
+            document.getElementById('greeting').innerText = "You clicked the button!";
+        }
+    </script>
+
+    <!-- Instructions to build this page:
+    1. Copy the entire code.
+    2. Paste it into a new file and save it with a .html extension, for example, index.html.
+    3. Open the index.html file in a web browser to see your simple webpage in action.
+
+    Explanation:
+
+    HTML Structure:
+    - The <!DOCTYPE html> declaration defines the document type and HTML version.
+    - The <html> tag encloses the entire HTML document.
+    - The <head> section contains metadata, the title of the document, and internal CSS styles.
+    - The <body> section contains the visible content of the webpage, including the header, main content, and a script.
+
+    CSS:
+    - The <style> tag inside the <head> section includes internal CSS to style the webpage.
+    - Basic styles are added for the body, header, main content area, and button to make the page look nice.
+
+    JavaScript:
+    - The <script> tag includes JavaScript code.
+    - The changeGreeting function changes the text content of the paragraph with the ID greeting when the button is clicked.
+
+    Feel free to expand on this by adding more styles, HTML elements, or JavaScript functions to suit your needs.
+    -->
+  </body>
+</html>
