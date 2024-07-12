@@ -2,37 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <meta
-      name="description"
-      content="My Simple Webpage"
-    />
-    <meta
-      name="keywords"
-      content="HTML, CSS, JavaScript"
-    />
-    <meta
-      name="author"
-      content="Your Name"
-    />
-    <meta
-      name="robots"
-      content="index, follow"
-    />
-    <title>My Simple Webpage by May Hicks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Added more Metadata-->
+    <meta name="author" content="Maymunah Hicks" />
+    <meta name="description" content="Personal website" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <title>May's First Webpage</title>
     <style>
       /* Add your CSS styles here */
       body {
-        font-family: Arial, sans-serif;
+        font-family: cursive, arial;
+        color: black;
         margin: 0;
         padding: 15px;
-        background-color: #f0f0f0;
+        background-color: #fff5fa;
       }
       header {
-        background-color: #4caf50;
+        background-color: #fe92bf;
         color: white;
         padding: 1em;
         text-align: center;
@@ -44,7 +30,8 @@
         border-radius: 8px;
       }
       button {
-        background-color: #4caf50;
+        background-color: #fe92bf;
+        font-family: cursive, arial;
         color: white;
         border: none;
         padding: 0.5em 1em;
@@ -60,19 +47,22 @@
   </head>
   <body>
     <header>
-      <h1>Welcome to My Simple Webpage</h1>
+      <h1>Welcome to May's Webpage</h1>
     </header>
     <main>
-      <p id="greeting">Hello, world!</p>
-      <button onclick="changeGreeting()">Click me!</button>
+      <p id="directions">
+        Click the button, and be directed to my Linkedin profile!
+      </p>
+      <button onclick="linkToWebsite()">Click me!</button>
     </main>
     <footer>
-      <p>© 2024 My Simple Webpage. All rights reserved.</p>
+      <p>© 2024 May's Webpage. All rights reserved.</p>
     </footer>
     <script>
-      function changeGreeting() {
-        document.getElementById('greeting').innerText =
-          'You clicked the button!!!!!';
+      /* Changed the function here to link to a webpage */
+      function linkToWebsite() {
+        window.location.href =
+          "https://www.linkedin.com/in/maymunah-hicks-19aa08233/";
       }
     </script>
   </body>
