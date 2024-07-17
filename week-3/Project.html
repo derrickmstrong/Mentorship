@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 15px;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+        main {
+            padding: 1em;
+            margin: 1em;
+            background-color: white;
+            border-radius: 8px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 1em 0;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+    <title>Week 3 - Project</title>
+  </head>
+  <body>
+    <h1>Week 3 - Project</h1>
+    <h2>Build a simple Node.js server with a basic API</h2>
+    <p>
+        In this project, you will create a simple Node.js server with a basic API that responds with a JSON object. The server will listen on a specific port and handle incoming requests to a specific route.
+    </p>
+    <h2>Instructions</h2>
+    <ol>
+        <h2>Step 1: Install Node.js and Create Project Directory</h2>
+        <p>First, ensure that Node.js is installed on your system. Node.js is a JavaScript runtime that allows you to run JavaScript code on the server side. You can download it from the official Node.js website.</p>
+        <p>After installing Node.js, create a new directory for your project and navigate into it. This directory will hold all your project files.</p>
+        <p>Initialize a new Node.js project using npm (Node Package Manager). This will create a package.json file in your project directory, which keeps track of your project dependencies and scripts.</p>
+        <p>The -y flag automatically answers "yes" to all prompts, generating a default package.json file.</p>
+        <pre>
+            <code>
+            node -v
+
+            mkdir simple-web-server
+            cd simple-web-server
+
+            npm init -y
+            </code>
+        </pre>
+        <h2>Step 2: Install Express</h2>
+        <pre>
+            <code>
+            npm install express
+            </code>
+        </pre>
+        <h2>Step 3: Create Server File</h2>
+        <p>Create a file named server.js in your project directory and add the following code to set up the server and a simple API endpoint:</p>
+        <pre>
+            <code>
+            const express = require('express');
+            const path = require('path');
+            const app = express();
+            const PORT = 3000;
+
+            // Serve static files from the "public" directory
+            app.use(express.static(path.join(__dirname, 'public')));
+
+            // Simple API endpoint
+            app.get('/api/message', (req, res) => {
+            res.json({ message: 'Hello from the API!' });
+            });
+
+            // Start the server
+            app.listen(PORT, () => {
+            console.log(`Server is running on http://localhost:${PORT}`);
+            });
+
+            </code>
+        <h2>Step 4: Create Public Directory and HTML File</h2>
+        <p>Create a directory named public in your project directory. Inside the public directory, create an index.html file with the following content:</p>
+        <pre>
+            <code>
+                <!DOCTYPE html>
+                <html lang="en">
+                    <head>
+                        <meta charset="UTF-8" />
+                        <meta
+                        name="viewport"
+                        content="width=device-width, initial-scale=1.0"
+                        />
+                        <title>Simple Web Server with API</title>
+                        <script>
+                        async function fetchMessage() {
+                            try {
+                            const response = await fetch('/api/message');
+                            const data = await response.json();
+                            document.getElementById('apiMessage').textContent = data.message;
+
+                            console.log('response:', response);
+                            console.log('data:', data);
+                            console.log('apiMessage:', data.message);
+                            } catch (error) {
+                            console.error('Error fetching message:', error);
+                            }
+                        }
+
+                        window.onload = fetchMessage;
+                        </script>
+                    </head>
+                    <body>
+                        <h1>Hello, World!</h1>
+                        <p>This is a simple web server using Node.js and Express.</p>
+                        <p>API Message: <span id="apiMessage">Hello May!</span></p>
+                    </body>
+                </html>
+            </code>
+        </pre>
+        <h2>Step 5: Run the Server</h2>
+        <p>Start the server by running the following command in your terminal:</p>
+        <pre>
+            <code>
+            node server.js
+            </code>
+        </pre>
+        <p>You should see a message indicating that the server is running:</p>
+        <pre>
+            <code>
+            Server is running on http://localhost:3000
+            </code>
+        </pre>
+        <h2>Step 6: Open in Browser</h2>
+        <p>Open your web browser and navigate to http://localhost:3000. You should see the HTML content along with the message fetched from the API endpoint.</p>
+        <p>Now you have a simple web server using Node.js and HTML with a basic API endpoint!</p>
+    </ol>
+    <!-- <h2>Explanation</h2> -->
+    <!-- <p>
+        This simple webpage consists of a header with a welcome message, a main content area with a paragraph and a button. When the button is clicked, the text content of the paragraph changes to "You clicked the button!".
+    </p>
+    <p>
+        Feel free to expand on this project by adding more styles, HTML elements, or JavaScript functions to enhance the functionality and appearance of the webpage.
+    </p> -->
+    <!-- <h2>Resources</h2> -->
+    <!-- <ul>
+        <li><a href="https://www.w3schools.com/html/">HTML Tutorial</a></li>
+        <li><a href="https://www.w3schools.com/css/">CSS Tutorial</a></li>
+        <li><a href="https://www.w3schools.com/js/">JavaScript Tutorial</a></li>
+    </ul> -->
+    <h2>Project Submission</h2>
+    <p>
+        Once you have completed the project, submit the code to a new Week 3 branch in GitHub.
+    </p>
+    
+    </body>
+</html>
