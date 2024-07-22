@@ -38,12 +38,33 @@
             cursor: pointer;
             border-radius: 4px;
         }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
     </style>
     <title>Week 3 - Project</title>
   </head>
   <body>
     <h1>Week 3 - Project</h1>
-    <h2>Build a simple Node.js server with a basic API</h2>
+    <h2>Project 1: Build a simple Node.js server with a basic API</h2>
     <p>
         In this project, you will create a simple Node.js server with a basic API that responds with a JSON object. The server will listen on a specific port and handle incoming requests to a specific route.
     </p>
@@ -166,6 +187,418 @@
     <p>
         Once you have completed the project, submit the code to a new Week 3 branch in GitHub.
     </p>
+    <!-- <hr />
+    <h1>Project 2: - Basic CRUD Operations</h1>
+    <p>CRUD operations are the four basic functions that can be performed on a database. CRUD stands for Create, Read, Update, and Delete. Here’s how these operations are typically executed in SQL and NoSQL databases:</p>
     
+    <h2>SQL Databases</h2>
+    
+    <h3>Create</h3>
+    <p><strong>SQL</strong>: Inserting a new record into a table.</p>
+    <pre><code>
+    INSERT INTO users (username, email, age) VALUES ('john_doe', 'john@example.com', 25);
+    </code></pre>
+    
+    <h3>Read</h3>
+    <p><strong>SQL</strong>: Retrieving data from a table.</p>
+    <pre><code>
+    SELECT * FROM users WHERE age > 20;
+    </code></pre>
+    
+    <h3>Update</h3>
+    <p><strong>SQL</strong>: Modifying existing records in a table.</p>
+    <pre><code>
+    UPDATE users SET email = 'john_new@example.com' WHERE username = 'john_doe';
+    </code></pre>
+    
+    <h3>Delete</h3>
+    <p><strong>SQL</strong>: Removing records from a table.</p>
+    <pre><code>
+    DELETE FROM users WHERE username = 'john_doe';
+    </code></pre>
+    
+    <h2>NoSQL Databases</h2>
+    
+    <h3>Create</h3>
+    <p><strong>Document Store (e.g., MongoDB)</strong>: Inserting a new document into a collection.</p>
+    <pre><code>
+    db.users.insertOne({ "username": "john_doe", "email": "john@example.com", "age": 25 });
+    </code></pre>
+    
+    <h3>Read</h3>
+    <p><strong>Document Store (e.g., MongoDB)</strong>: Retrieving documents from a collection.</p>
+    <pre><code>
+    db.users.find({ "age": { "$gt": 20 } });
+    </code></pre>
+    
+    <h3>Update</h3>
+    <p><strong>Document Store (e.g., MongoDB)</strong>: Modifying an existing document.</p>
+    <pre><code>
+    db.users.updateOne({ "username": "john_doe" }, { "$set": { "email": "john_new@example.com" } });
+    </code></pre>
+    
+    <h3>Delete</h3>
+    <p><strong>Document Store (e.g., MongoDB)</strong>: Removing a document from a collection.</p>
+    <pre><code>
+    db.users.deleteOne({ "username": "john_doe" });
+    </code></pre>
+    
+    <h1>Database Schema Design</h1>
+    <p>Database schema design is the process of defining the structure of a database, including the tables, fields, and relationships between them. A well-designed schema ensures data integrity, efficiency, and scalability.</p>
+    
+    <h2>SQL Schema Design</h2>
+    
+    <ol>
+        <li><strong>Identify Entities</strong>: Determine the main entities (e.g., Users, Products, Orders) that need to be represented.</li>
+        <li><strong>Define Tables</strong>: Create tables for each entity, specifying columns and their data types.</li>
+        <li><strong>Set Primary Keys</strong>: Choose a primary key for each table to uniquely identify records.</li>
+        <li><strong>Establish Relationships</strong>: Use foreign keys to define relationships between tables (e.g., One-to-Many, Many-to-Many).</li>
+        <li><strong>Normalize Data</strong>: Apply normalization techniques to reduce data redundancy and ensure data integrity.</li>
+    </ol>
+    
+    <p>Example:</p>
+    <pre><code>
+    CREATE TABLE users (
+        user_id INT PRIMARY KEY,
+        username VARCHAR(50) NOT NULL,
+        email VARCHAR(100) NOT NULL,
+        age INT
+    );
+
+    CREATE TABLE orders (
+        order_id INT PRIMARY KEY,
+        user_id INT,
+        order_date DATE,
+        amount DECIMAL(10, 2),
+        FOREIGN KEY (user_id) REFERENCES users(user_id)
+    );
+    </code></pre>
+    
+    <h2>NoSQL Schema Design</h2>
+    <p>NoSQL databases are schema-less or have a flexible schema, allowing for more dynamic data models. The design approach varies based on the type of NoSQL database.</p>
+    
+    <ol>
+        <li><strong>Document Store</strong>: Design collections to store related documents. Documents within a collection can have different structures.</li>
+        <li><strong>Key-Value Store</strong>: Use keys to uniquely identify values, which can be simple data types or complex objects.</li>
+        <li><strong>Column-Family Store</strong>: Group related data into column families for efficient read/write operations.</li>
+        <li><strong>Graph Database</strong>: Model data as nodes and relationships (edges) to represent interconnected data.</li>
+    </ol>
+    
+    <p>Example (MongoDB):</p>
+    <pre><code>
+    // Users collection
+    {
+        "_id": ObjectId("60a7b1c2d2eabc00123f5a78"),
+        "username": "john_doe",
+        "email": "john@example.com",
+        "age": 25,
+        "orders": [
+            {
+                "order_id": ObjectId("60a7b1c2d2eabc00123f5a79"),
+                "order_date": "2021-05-21",
+                "amount": 99.99
+            }
+        ]
+    }
+    </code></pre>
+    
+    <h1>Best Practices for Schema Design</h1>
+    <ol>
+        <li><strong>Understand Data Requirements</strong>: Know what data you need to store, how it will be accessed, and the relationships between data elements.</li>
+        <li><strong>Plan for Scalability</strong>: Design your schema to handle growing data volumes and increased load.</li>
+        <li><strong>Ensure Data Integrity</strong>: Use constraints, indexes, and relationships to maintain data accuracy and consistency.</li>
+        <li><strong>Optimize for Queries</strong>: Structure your schema to support efficient querying and minimize performance bottlenecks.</li>
+        <li><strong>Document Your Schema</strong>: Maintain clear documentation of your schema design for future reference and maintenance.</li>
+    </ol>
+    
+    <p>By following these principles, you can design effective database schemas that support the needs of your application and ensure long-term data management success.</p> -->
+
+    <hr style="margin: 50px 0 ;" />
+
+    <h2>Project 2: Creating and Interacting with a Simple Database in JavaScript</h2>
+    <p>Creating and interacting with a simple database in JavaScript can be done using various libraries and frameworks. One of the most popular and easy-to-use libraries for this purpose is SQLite with the <code>sqlite3</code> package for Node.js. Let's walk through the steps to set up and interact with a SQLite database in a Node.js environment.</p>
+    
+    <h2>1. Setting Up the Environment</h2>
+    <p>First, ensure you have Node.js installed on your system. You can download it from <a href="https://nodejs.org/">nodejs.org</a>.</p>
+    <p>Next, create a new project directory and initialize it with npm:</p>
+    <pre><code>
+mkdir mydatabase
+cd mydatabase
+npm init -y
+    </code></pre>
+    <p>Install the <code>sqlite3</code> package:</p>
+    <pre><code>
+npm install sqlite3
+    </code></pre>
+    
+    <h2>2. Creating and Interacting with the Database</h2>
+    <p>Create a file named <code>database.js</code> and add the following code to it:</p>
+    <pre><code>
+const sqlite3 = require('sqlite3').verbose();
+
+// Connect to the database (or create it if it doesn't exist)
+const db = new sqlite3.Database('mydatabase.db');
+
+// Create tables
+db.serialize(() => {
+    db.run(`CREATE TABLE IF NOT EXISTS users (
+        user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL,
+        email TEXT NOT NULL,
+        age INTEGER
+    )`);
+
+    db.run(`CREATE TABLE IF NOT EXISTS orders (
+        order_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER,
+        order_date TEXT,
+        amount REAL,
+        FOREIGN KEY (user_id) REFERENCES users(user_id)
+    )`);
+});
+
+// Insert data
+const insertData = () => {
+    db.run(`INSERT INTO users (username, email, age) VALUES ('john_doe', 'john@example.com', 25)`);
+    db.run(`INSERT INTO users (username, email, age) VALUES ('jane_smith', 'jane@example.com', 30)`);
+    db.run(`INSERT INTO orders (user_id, order_date, amount) VALUES (1, '2023-07-01', 99.99)`);
+    db.run(`INSERT INTO orders (user_id, order_date, amount) VALUES (2, '2023-07-02', 149.99)`);
+};
+
+// Read data
+const readData = () => {
+    db.all('SELECT * FROM users', (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        console.log('Users:', rows);
+    });
+
+    db.all('SELECT * FROM orders WHERE user_id = 1', (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        console.log('Orders for user_id = 1:', rows);
+    });
+};
+
+// Update data
+const updateData = () => {
+    db.run(`UPDATE users SET email = 'john_new@example.com' WHERE username = 'john_doe'`);
+    db.run(`UPDATE orders SET amount = 129.99 WHERE order_id = 2`);
+};
+
+// Delete data
+const deleteData = () => {
+    db.run(`DELETE FROM users WHERE username = 'john_doe'`);
+    db.run(`DELETE FROM orders WHERE order_id = 1`);
+};
+
+// Function to close the database
+const closeDatabase = () => {
+    db.close((err) => {
+        if (err) {
+            return console.error(err.message);
+        }
+        console.log('Closed the database connection.');
+    });
+};
+
+// Interact with the database
+db.serialize(() => {
+    insertData();
+    readData();
+    updateData();
+    deleteData();
+    readData();
+    closeDatabase();
+});
+    </code></pre>
+    
+    <h2>3. Running the Script</h2>
+    <p>To run the script, execute the following command in your terminal:</p>
+    <pre><code>
+node database.js
+    </code></pre>
+    
+    <h2>Explanation of the Code</h2>
+    <p><strong>Connecting to the Database</strong>: <code>const db = new sqlite3.Database('mydatabase.db');</code> connects to a SQLite database file. If the file doesn't exist, it will be created.</p>
+    <p><strong>Creating Tables</strong>: <code>db.run</code> is used to execute SQL commands to create the <code>users</code> and <code>orders</code> tables if they don't already exist.</p>
+    <p><strong>Inserting Data</strong>: <code>db.run</code> inserts sample data into the <code>users</code> and <code>orders</code> tables.</p>
+    <p><strong>Reading Data</strong>: <code>db.all</code> retrieves data from the <code>users</code> table and orders for a specific user from the <code>orders</code> table.</p>
+    <p><strong>Updating Data</strong>: <code>db.run</code> updates specific records in the <code>users</code> and <code>orders</code> tables.</p>
+    <p><strong>Deleting Data</strong>: <code>db.run</code> deletes specific records from the <code>users</code> and <code>orders</code> tables.</p>
+    <p><strong>Closing the Database</strong>: <code>db.close</code> closes the database connection after all operations are completed.</p>
+    
+    <p>By running this script, you can create a simple SQLite database, perform basic CRUD operations, and interact with the data using JavaScript.</p>
+
+    <hr style="margin: 50px 0 ;" />
+
+    <h2>Project 3: Connecting a Simple SQLite Database to an HTML Application</h2>
+    <p>To connect a simple SQLite database to an HTML application and read/display data on a webpage, you'll need a server-side component to interact with the database and serve data to the client-side HTML/JavaScript. We'll use Node.js and Express for the server-side logic.</p>
+    
+    <div class="section">
+        <h2>1. Setting Up the Environment</h2>
+        <p>First, ensure you have Node.js and npm installed on your system.</p>
+        <p>Create a new project directory and initialize it with npm:</p>
+        <pre><code>
+mkdir simple-database
+cd simple-database
+npm init -y
+        </code></pre>
+        <p>Install the necessary packages:</p>
+        <pre><code>
+npm install express sqlite3
+        </code></pre>
+    </div>
+    
+    <div class="section">
+        <h2>2. Setting Up the Server</h2>
+        <p>Create a file named <code>server.js</code> and add the following code to set up the Express server and interact with the SQLite database:</p>
+        <pre><code>
+const express = require('express');
+const sqlite3 = require('sqlite3').verbose();
+const path = require('path');
+
+const app = express();
+const db = new sqlite3.Database('mydatabase.db');
+
+// Serve static files from the "public" directory
+app.use(express.static('public'));
+
+// API endpoint to get users data
+app.get('/api/users', (req, res) => {
+    db.all('SELECT * FROM users', (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+            return;
+        }
+        res.json({
+            message: 'success',
+            data: rows
+        });
+    });
+});
+
+// Start the server
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+        </code></pre>
+    </div>
+    
+    <div class="section">
+        <h2>3. Setting Up the Database and Initial Data</h2>
+        <p>In the same directory, create a script named <code>setupDatabase.js</code> to create the database tables and insert initial data:</p>
+        <pre><code>
+const sqlite3 = require('sqlite3').verbose();
+
+const db = new sqlite3.Database('mydatabase.db');
+
+db.serialize(() => {
+    db.run(`CREATE TABLE IF NOT EXISTS users (
+        user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL,
+        email TEXT NOT NULL,
+        age INTEGER
+    )`);
+
+    db.run(`DELETE FROM users`); // Clear any existing data
+
+    db.run(`INSERT INTO users (username, email, age) VALUES ('john_doe', 'john@example.com', 25)`);
+    db.run(`INSERT INTO users (username, email, age) VALUES ('jane_smith', 'jane@example.com', 30)`);
+});
+
+db.close();
+        </code></pre>
+        <p>Run this script once to set up your database:</p>
+        <pre><code>
+node setupDatabase.js
+        </code></pre>
+    </div>
+    
+    <div class="section">
+        <h2>4. Creating the HTML and JavaScript Frontend</h2>
+        <p>Create a directory named <code>public</code> in the project directory, and inside it, create an <code>index.html</code> file:</p>
+        <pre><code>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>User List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody id="user-table-body">
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/api/users')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.getElementById('user-table-body');
+                    data.data.forEach(user => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${user.username}</td>
+                            <td>${user.email}</td>
+                            <td>${user.age}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error fetching user data:', error));
+        });
+    </script>
+</body>
+</html>
+        </code></pre>
+    </div>
+    
+    <div class="section">
+        <h2>5. Running the Application</h2>
+        <p>Start the Express server:</p>
+        <pre><code>
+node server.js
+        </code></pre>
+        <p>Open your browser and navigate to <a href="http://localhost:3000">http://localhost:3000</a>. You should see a list of users displayed in a table.</p>
+    </div>
+    
+    <div class="section">
+        <h2>Summary</h2>
+        <p>In this setup, you:</p>
+        <ul>
+            <li>Created a Node.js project and installed the necessary packages.</li>
+            <li>Set up an Express server to serve static files and handle API requests.</li>
+            <li>Created a SQLite database and inserted initial data.</li>
+            <li>Built an HTML frontend with JavaScript to fetch and display data from the server.</li>
+        </ul>
+        <p>This is a basic example, and you can expand on it by adding more features, improving error handling, and enhancing the frontend.</p>
+    </div>
     </body>
 </html>
