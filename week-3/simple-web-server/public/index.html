@@ -2,32 +2,76 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title>Simple Web Server with API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>May's Webserver and API</title>
     <script>
+      // Added two new functions, User and Status
+      async function fetchUser() {
+        try {
+          const response = await fetch("/api/user");
+          const data = await response.json();
+
+          // Set Timeout to see message being updated
+          setTimeout(() => {
+            document.getElementById("apiUser").textContent = data.Name;
+          }, 3000);
+          console.log("response:", response);
+          console.log("data:", data);
+          console.log("Name:", Name);
+        } catch (error) {
+          console.error("Error fetching message:", error);
+        }
+      }
+      async function fetchStatus() {
+        try {
+          const response = await fetch("/api/status");
+          const data = await response.json();
+          setTimeout(() => {
+            document.getElementById("apiStatus").textContent = data.Status;
+          }, 3000);
+          console.log("response:", response);
+          console.log("data:", data);
+          console.log("Status:", Status);
+        } catch (error) {
+          console.error("Error fetching message:", error);
+        }
+      }
       async function fetchMessage() {
         try {
-          const response = await fetch('/api/message');
+          const response = await fetch("/api/message");
           const data = await response.json();
-          document.getElementById('apiMessage').textContent = data.message;
+          setTimeout(() => {
+            document.getElementById("apiMessage").textContent = data.message;
+          }, 3000);
 
-          console.log('response:', response);
-          console.log('data:', data);
-          console.log('apiMessage:', data.message);
+          console.log("response:", response);
+          console.log("data:", data);
+          console.log("apiMessage:", data.message);
         } catch (error) {
-          console.error('Error fetching message:', error);
+          console.error("Error fetching message:", error);
         }
       }
 
-      window.onload = fetchMessage;
+      window.onload = () => {
+        fetchMessage();
+        fetchUser();
+        fetchStatus();
+      };
     </script>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 15px;
+            background-color: #ffb3d0;
+        }
+    </style>
   </head>
   <body>
     <h1>Hello, World!</h1>
     <p>This is a simple web server using Node.js and Express.</p>
-    <p>API Message: <span id="apiMessage">Hello May!</span></p>
+    <p>API User: <span id="apiUser">Unknown User</span></p>
+    <p>API Status: <span id="apiStatus">Signed Out</span></p>
+    <p>API Message: <span id="apiMessage">Goodmorning User</span></p>
   </body>
 </html>
