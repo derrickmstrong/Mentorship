@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>User List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody id="user-table-body">
+            <!-- This will be populated by JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/api/users')
+                .then(response => response.json()) // Parse the JSON response
+                .then(data => { // Use the parsed data
+                    const tableBody = document.getElementById('user-table-body');
+                    console.log('data:', data); // Log the data to the console
+                    data.data.forEach(user => {
+                        const row = document.createElement('tr'); // Create a new row
+                        row.innerHTML = ` 
+                            <td>${user.username}</td>
+                            <td>${user.email}</td>
+                            <td>${user.age}</td>
+                        `;
+                        tableBody.appendChild(row); // Add the row to the table
+                    });
+                })
+                .catch(error => console.error('Error fetching user data:', error)); // Log any errors to the console
+        });
+    </script>
+</body>
+</html>
