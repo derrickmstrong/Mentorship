@@ -7,6 +7,9 @@
       content="width=device-width, initial-scale=1.0"
     />
     <style>
+      body {
+        margin: 25px;
+      }
       ul {
         list-style-type: none;
       }
@@ -22,148 +25,340 @@
 
     <h2>Session 6: Data Management</h2>
 
-<p>Databases are a critical component of web applications for several reasons:</p>
+    <p>
+      Databases are a critical component of web applications for several
+      reasons:
+    </p>
 
-<ol>
-    <li>Data Storage and Management</li>
-    <ul>
-        <ol>Persistent Storage**: Databases provide a way to store data permanently. This is essential for maintaining user information, application settings, transaction records, etc., even after the application is closed or the server is restarted.
+    <ol>
+      <li>Data Storage and Management</li>
+      <ul>
+        <ol>
+          Persistent Storage**: Databases provide a way to store data
+          permanently. This is essential for maintaining user information,
+          application settings, transaction records, etc., even after the
+          application is closed or the server is restarted.
         </ol>
-        <ol>Structured Data**: Databases allow data to be stored in a structured format, making it easier to manage and retrieve. This is crucial for applications that handle complex data relationships.</ol>
-    </ul>
-    <li>Data Retrieval and Querying</li>
+        <ol>
+          Structured Data**: Databases allow data to be stored in a structured
+          format, making it easier to manage and retrieve. This is crucial for
+          applications that handle complex data relationships.
+        </ol>
+      </ul>
+      <li>Data Retrieval and Querying</li>
+      <ul>
+        <ol>
+          Efficient Access**: Databases are optimized for fast data retrieval.
+          They support various indexing techniques and query optimizations to
+          ensure that data can be accessed quickly.
+        </ol>
+        <ol>
+          Query Language**: SQL (Structured Query Language) provides a powerful
+          way to query and manipulate data. This allows developers to easily
+          perform complex operations on the data.
+        </ol>
+      </ul>
+      <li>Data Integrity and Consistency</li>
+      <ul>
+        <ol>
+          ACID Properties**: Databases ensure data integrity through ACID
+          (Atomicity, Consistency, Isolation, Durability) properties. These
+          properties guarantee reliable transactions, preventing data corruption
+          and ensuring consistency.
+        </ol>
+        <ol>
+          Constraints and Validation**: Databases can enforce constraints (e.g.,
+          primary keys, foreign keys, unique constraints) and validate data,
+          ensuring that only valid data is stored.
+        </ol>
+      </ul>
+      <li>Concurrency Control</li>
+      <ul>
+        <ol>
+          Multi-User Access**: Databases are designed to handle concurrent
+          access by multiple users. They manage locks and transactions to ensure
+          that multiple users can read and write data simultaneously without
+          conflicts.
+        </ol>
+        <ol>
+          Isolation Levels**: Different isolation levels allow developers to
+          balance between consistency and performance based on the needs of the
+          application.
+        </ol>
+      </ul>
+      <li>Scalability and Performance</li>
+      <ul>
+        <ol>
+          Horizontal and Vertical Scaling**: Databases can be scaled
+          horizontally (adding more machines) or vertically (adding more
+          resources to a machine) to handle increased load.
+        </ol>
+        <ol>
+          Optimization Techniques**: Various optimization techniques (e.g.,
+          indexing, caching, sharding) can be applied to improve the performance
+          of database queries.
+        </ol>
+      </ul>
+      <li>Backup and Recovery</li>
+      <ul>
+        <ol>
+          Data Backup**: Databases provide mechanisms for regular data backups,
+          ensuring that data can be recovered in case of hardware failures or
+          data corruption.
+        </ol>
+        <ol>
+          Disaster Recovery**: Advanced recovery options (e.g., point-in-time
+          recovery, replication) help in quickly restoring the application to
+          its previous state in case of a disaster.
+        </ol>
+      </ul>
+      <li>Security</li>
+      <ul>
+        <ol>
+          Access Control**: Databases support role-based access control,
+          allowing administrators to define who can access and modify data.
+        </ol>
+        <ol>
+          Encryption**: Data can be encrypted both at rest and in transit,
+          providing an additional layer of security.
+        </ol>
+      </ul>
+      <li>Reporting and Analytics</li>
+      <ul>
+        <ol>
+          Data Aggregation**: Databases enable the aggregation of large volumes
+          of data for reporting and analysis.
+        </ol>
+        <ol>
+          Business Intelligence**: Integration with BI tools allows for advanced
+          data analysis and visualization, helping businesses make informed
+          decisions.
+        </ol>
+      </ul>
+    </ol>
+    <h3>Conclusion</h3>
+    <p>
+      Databases are indispensable for web applications due to their ability to
+      store, manage, retrieve, and secure data efficiently. They ensure data
+      integrity, support concurrent access, and provide scalability and
+      performance optimizations. By leveraging the capabilities of databases,
+      web applications can deliver robust, reliable, and high-performing
+      services to users.
+    </p>
+
+    <hr style="margin: 50px 0" />
+
+    <h2>Introduction to SQL and NoSQL Databases</h2>
+
+    <p>
+      Databases are crucial for storing and managing data in web applications.
+      They fall into two main categories: SQL (relational) and NoSQL
+      (non-relational) databases. Each type has its own characteristics,
+      strengths, and use cases.
+    </p>
+
+    <h3>SQL Databases</h3>
+
+    <p>
+      <strong>SQL (Structured Query Language) databases</strong> are relational
+      databases that use structured schemas and tables to organize data. They
+      are based on a predefined schema, ensuring data consistency and integrity.
+      SQL databases are ideal for applications that require complex queries and
+      transactions.
+    </p>
+
+    <h4>Key Characteristics:</h4>
     <ul>
-        <ol>Efficient Access**: Databases are optimized for fast data retrieval. They support various indexing techniques and query optimizations to ensure that data can be accessed quickly.</ol>
-        <ol>Query Language**: SQL (Structured Query Language) provides a powerful way to query and manipulate data. This allows developers to easily perform complex operations on the data.</ol>
+      <li>
+        Schema-based: Data is stored in tables with fixed schemas, which define
+        the structure of the data (e.g., columns and data types).
+      </li>
+      <li>
+        ACID Compliance: SQL databases adhere to ACID properties (Atomicity,
+        Consistency, Isolation, Durability), ensuring reliable transactions.
+      </li>
+      <li>
+        SQL Query Language: SQL is used to perform CRUD (Create, Read, Update,
+        Delete) operations and complex queries.
+      </li>
+      <li>
+        Relationships**: SQL databases support relationships between tables
+        using foreign keys, enabling complex joins and data normalization.
+      </li>
     </ul>
-    <li>Data Integrity and Consistency</li>
+
+    <h4>Common SQL Databases:</h4>
     <ul>
-        <ol>ACID Properties**: Databases ensure data integrity through ACID (Atomicity, Consistency, Isolation, Durability) properties. These properties guarantee reliable transactions, preventing data corruption and ensuring consistency.</ol>
-        <ol>Constraints and Validation**: Databases can enforce constraints (e.g., primary keys, foreign keys, unique constraints) and validate data, ensuring that only valid data is stored.</ol>
+      <li>
+        <strong>MySQL</strong>: Popular open-source database known for its speed
+        and reliability.
+      </li>
+      <li>
+        <strong>PostgreSQL</strong>: Advanced open-source database with support
+        for complex queries and extensive data types.
+      </li>
+      <li>
+        <strong>SQLite</strong>: Lightweight, file-based database often used in
+        embedded systems and mobile applications.
+      </li>
+      <li>
+        <strong>Microsoft SQL Server</strong>: Enterprise-level database with
+        robust performance and integration with Microsoft tools.
+      </li>
+      <li>
+        <strong>Oracle Database</strong>: Enterprise-grade database known for
+        its scalability and advanced features.
+      </li>
     </ul>
-    <li>Concurrency Control</li>
+
+    <h4>Use Cases:</h4>
     <ul>
-        <ol>Multi-User Access**: Databases are designed to handle concurrent access by multiple users. They manage locks and transactions to ensure that multiple users can read and write data simultaneously without conflicts.</ol>
-        <ol>Isolation Levels**: Different isolation levels allow developers to balance between consistency and performance based on the needs of the application.</ol>
+      <li>
+        <strong>E-commerce platforms</strong>: Managing product inventories,
+        customer information, and transactions.
+      </li>
+      <li>
+        <strong>Banking systems</strong>: Handling complex transactions and
+        ensuring data integrity.
+      </li>
+      <li>
+        <strong>Content management systems</strong>: Storing structured content
+        and metadata.
+      </li>
     </ul>
-    <li>Scalability and Performance</li>
+
+    <hr style="margin: 50px 0" />
+
+    <h2>NoSQL Databases</h2>
+
+    <p>
+      <strong>NoSQL (Not Only SQL) databases</strong> are non-relational
+      databases designed to handle large volumes of unstructured or
+      semi-structured data. They offer flexibility in terms of schema design and
+      are optimized for performance and scalability.
+    </p>
+
+    <h4>Key Characteristics:</h4>
+
     <ul>
-        <ol>Horizontal and Vertical Scaling**: Databases can be scaled horizontally (adding more machines) or vertically (adding more resources to a machine) to handle increased load.</ol>
-        <ol>Optimization Techniques**: Various optimization techniques (e.g., indexing, caching, sharding) can be applied to improve the performance of database queries.</ol>
+      <li>
+        <strong>Schema-less</strong>: NoSQL databases do not require a fixed
+        schema, allowing for dynamic and flexible data models.
+      </li>
+      <li>
+        <strong>Scalability</strong>: They are designed to scale horizontally by
+        distributing data across multiple servers.
+      </li>
+      <li>
+        <strong>Diverse Data Models</strong>: NoSQL databases support various
+        data models, including document, key-value, column-family, and graph.
+      </li>
     </ul>
-    <li>Backup and Recovery</li>
-    <ul>
-        <ol>Data Backup**: Databases provide mechanisms for regular data backups, ensuring that data can be recovered in case of hardware failures or data corruption.</ol>
-        <ol>Disaster Recovery**: Advanced recovery options (e.g., point-in-time recovery, replication) help in quickly restoring the application to its previous state in case of a disaster.</ol>
-    </ul>
-    <li>Security</li>
-    <ul>
-        <ol>Access Control**: Databases support role-based access control, allowing administrators to define who can access and modify data.</ol>
-        <ol>Encryption**: Data can be encrypted both at rest and in transit, providing an additional layer of security.</ol>
-    </ul>
-    <li>Reporting and Analytics</li>
-    <ul>
-        <ol>Data Aggregation**: Databases enable the aggregation of large volumes of data for reporting and analysis.</ol>
-        <ol>Business Intelligence**: Integration with BI tools allows for advanced data analysis and visualization, helping businesses make informed decisions.</ol>
-    </ul>
-</ol>
-<h3>Conclusion</h3>
-<p>Databases are indispensable for web applications due to their ability to store, manage, retrieve, and secure data efficiently. They ensure data integrity, support concurrent access, and provide scalability and performance optimizations. By leveraging the capabilities of databases, web applications can deliver robust, reliable, and high-performing services to users.</p>
 
-<hr />
+    <h4>Types of NoSQL Databases:</h4>
 
-<h3>Introduction to SQL and NoSQL Databases</h3>
-
-<p>Databases are crucial for storing and managing data in web applications. They fall into two main categories: SQL (relational) and NoSQL (non-relational) databases. Each type has its own characteristics, strengths, and use cases.</p>
-
-<h3>SQL Databases</h3>
-
-<p><strong>SQL (Structured Query Language) databases</strong> are relational databases that use structured schemas and tables to organize data. They are based on a predefined schema, ensuring data consistency and integrity. SQL databases are ideal for applications that require complex queries and transactions.</p>
-
-<h4>Key Characteristics:</h4>
-<ul>
-    <li>Schema-based: Data is stored in tables with fixed schemas, which define the structure of the data (e.g., columns and data types).</li>
-    <li>ACID Compliance: SQL databases adhere to ACID properties (Atomicity, Consistency, Isolation, Durability), ensuring reliable transactions.</li>
-    <li>SQL Query Language: SQL is used to perform CRUD (Create, Read, Update, Delete) operations and complex queries.</li>
-    <li>Relationships**: SQL databases support relationships between tables using foreign keys, enabling complex joins and data normalization.</li>
-</ul>
-
-<h4>Common SQL Databases:</h4>
-<ul>
-    <li><strong>MySQL</strong>: Popular open-source database known for its speed and reliability.</li>
-    <li><strong>PostgreSQL</strong>: Advanced open-source database with support for complex queries and extensive data types.</li>
-    <li><strong>SQLite</strong>: Lightweight, file-based database often used in embedded systems and mobile applications.</li>
-    <li><strong>Microsoft SQL Server</strong>: Enterprise-level database with robust performance and integration with Microsoft tools.</li>
-    <li><strong>Oracle Database</strong>: Enterprise-grade database known for its scalability and advanced features.</li>
-</ul>
-
-<h4>Use Cases:</h4>
-<ul>
-    <li><strong>E-commerce platforms</strong>: Managing product inventories, customer information, and transactions.</li>
-    <li><strong>Banking systems</strong>: Handling complex transactions and ensuring data integrity.</li>
-    <li><strong>Content management systems</strong>: Storing structured content and metadata.</li>
-</ul>
-<hr />
-<h3>NoSQL Databases</h3>
-
-<p><strong>NoSQL (Not Only SQL) databases</strong> are non-relational databases designed to handle large volumes of unstructured or semi-structured data. They offer flexibility in terms of schema design and are optimized for performance and scalability.</p>
-
-<h4>Key Characteristics:</h4>
-
-<ul>
-    <li><strong>Schema-less</strong>: NoSQL databases do not require a fixed schema, allowing for dynamic and flexible data models.</li>
-    <li><strong>Scalability</strong>: They are designed to scale horizontally by distributing data across multiple servers.</li>
-    <li><strong>Diverse Data Models</strong>: NoSQL databases support various data models, including document, key-value, column-family, and graph.</li>
-</ul>
-
-<h4>Types of NoSQL Databases:</h4>
-
-<ol>
-    <li><strong>Document Stores</strong>: Store data as JSON-like documents.
+    <ol>
+      <li>
+        <strong>Document Stores</strong>: Store data as JSON-like documents.
         <ul>
-            <li><strong>MongoDB</strong>: Popular document store known for its flexibility and ease of use.</li>
-            <li><strong>CouchDB</strong>: Focuses on distributed scaling and offline-first capabilities.</li>
+          <li>
+            <strong>MongoDB</strong>: Popular document store known for its
+            flexibility and ease of use.
+          </li>
+          <li>
+            <strong>CouchDB</strong>: Focuses on distributed scaling and
+            offline-first capabilities.
+          </li>
         </ul>
-    </li>
-    <li><strong>Key-Value Stores</strong>: Store data as key-value pairs.
+      </li>
+      <li>
+        <strong>Key-Value Stores</strong>: Store data as key-value pairs.
         <ul>
-            <li><strong>Redis</strong>: In-memory key-value store known for its speed and support for various data structures.</li>
-            <li><strong>DynamoDB</strong>: Managed key-value and document database offered by AWS.</li>
+          <li>
+            <strong>Redis</strong>: In-memory key-value store known for its
+            speed and support for various data structures.
+          </li>
+          <li>
+            <strong>DynamoDB</strong>: Managed key-value and document database
+            offered by AWS.
+          </li>
         </ul>
-    </li>
-    <li><strong>Column-Family Stores</strong>: Store data in columns rather than rows.
+      </li>
+      <li>
+        <strong>Column-Family Stores</strong>: Store data in columns rather than
+        rows.
         <ul>
-            <li><strong>Cassandra</strong>: Highly scalable column-family store designed for high availability.</li>
-            <li><strong>HBase</strong>: Column-family store built on top of Hadoop, suitable for big data applications.</li>
+          <li>
+            <strong>Cassandra</strong>: Highly scalable column-family store
+            designed for high availability.
+          </li>
+          <li>
+            <strong>HBase</strong>: Column-family store built on top of Hadoop,
+            suitable for big data applications.
+          </li>
         </ul>
-    </li>
-    <li><strong>Graph Databases</strong>: Store data as nodes and edges to represent relationships.
+      </li>
+      <li>
+        <strong>Graph Databases</strong>: Store data as nodes and edges to
+        represent relationships.
         <ul>
-            <li><strong>Neo4j</strong>: Leading graph database known for its performance in handling graph-based queries.</li>
-            <li><strong>ArangoDB</strong>: Multi-model database that supports graph, document, and key-value models.</li>
+          <li>
+            <strong>Neo4j</strong>: Leading graph database known for its
+            performance in handling graph-based queries.
+          </li>
+          <li>
+            <strong>ArangoDB</strong>: Multi-model database that supports graph,
+            document, and key-value models.
+          </li>
         </ul>
-    </li>
-</ol>
+      </li>
+    </ol>
 
-<h4>Use Cases:</h4>
+    <h4>Use Cases:</h4>
 
-<ul>
-    <li><strong>Real-time analytics</strong>: Handling large volumes of streaming data.</li>
-    <li><strong>Social networks</strong>: Managing user relationships and interactions.</li>
-    <li><strong>IoT applications</strong>: Storing and querying sensor data.</li>
-    <li><strong>Content delivery networks (CDNs)</strong>: Caching and distributing content efficiently.</li>
-</ul>
-<hr />
+    <ul>
+      <li>
+        <strong>Real-time analytics</strong>: Handling large volumes of
+        streaming data.
+      </li>
+      <li>
+        <strong>Social networks</strong>: Managing user relationships and
+        interactions.
+      </li>
+      <li>
+        <strong>IoT applications</strong>: Storing and querying sensor data.
+      </li>
+      <li>
+        <strong>Content delivery networks (CDNs)</strong>: Caching and
+        distributing content efficiently.
+      </li>
+    </ul>
+    <hr style="margin: 50px 0" />
 
-<h3>Choosing Between SQL and NoSQL</h3>
+    <h2>Choosing Between SQL and NoSQL</h2>
 
-<p>The choice between SQL and NoSQL depends on the specific requirements of the application:</p>
+    <p>
+      The choice between SQL and NoSQL depends on the specific requirements of
+      the application:
+    </p>
 
-<ul>
-    <li><strong>SQL</strong>: Choose SQL databases for applications requiring complex queries, transactional integrity, and structured data.</li>
-    <li><strong>NoSQL</strong>: Opt for NoSQL databases when dealing with large volumes of unstructured data, requiring high scalability, or needing flexible schema designs.</li>
-</ul>
+    <ul>
+      <li>
+        <strong>SQL</strong>: Choose SQL databases for applications requiring
+        complex queries, transactional integrity, and structured data.
+      </li>
+      <li>
+        <strong>NoSQL</strong>: Opt for NoSQL databases when dealing with large
+        volumes of unstructured data, requiring high scalability, or needing
+        flexible schema designs.
+      </li>
+    </ul>
 
-<p>Both SQL and NoSQL databases have their own advantages and are often used together in modern applications to leverage their respective strengths. Understanding the differences and appropriate use cases for each can help in designing robust and efficient data storage solutions.</p>
+    <p>
+      Both SQL and NoSQL databases have their own advantages and are often used
+      together in modern applications to leverage their respective strengths.
+      Understanding the differences and appropriate use cases for each can help
+      in designing robust and efficient data storage solutions.
+    </p>
   </body>
 </html>
