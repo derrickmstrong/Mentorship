@@ -18,6 +18,16 @@ db.serialize(() => {
   db.run(
     `INSERT INTO users (username, email, age) VALUES ('jane_smith', 'jane@example.com', 30)`
   );
+
+// Run this the second time you test your code
+// Update data
+//    db.run(
+//      `UPDATE users SET email = 'john_new@example.com' WHERE username = 'john_doe'`
+//    );
+//    db.run(
+//      `UPDATE users SET email = 'jane_new_smith@example.com' WHERE username = 'jane_smith'`
+//   );
 });
 
+// Close the database connection
 db.close();
